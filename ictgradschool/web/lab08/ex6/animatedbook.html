@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animated book on lesser-known mammals</title>
+	<meta charset="UTF-8" />
+	<style>
+
+	div#wrapper {
+		margin: auto;
+		height: 100%;
+		padding: 10%;	
+	}
+
+	div#container {
+		margin: auto; 
+		width: 732px; /* Twice the width to allow for page opening*/
+		height: 439px;	/* padding with 15 px top and bottom */
+		position: relative;
+		padding: 15px;
+		
+		box-sizing: border-box;	
+	}
+
+	.frontcover {
+	  background: -webkit-radial-gradient(circle, Gold, CadetBlue); /* Safari */
+	  background: -o-radial-gradient(circle, Gold, CadetBlue); /* Opera 11.6 to 12.0 */
+	  background: -moz-radial-gradient(circle, Navy, Gold, CadetBlue); /* Firefox 3.6 to 15 */
+	  background: radial-gradient(circle, Gold, CadetBlue); /* Standard syntax */
+	  
+	  font-size: 3em;
+	  padding:10%;
+	}
+
+	small { font-size: 0.4em; }
+
+	.backcover { 
+		background-color: CadetBlue;
+	}
+
+	.frontcover, .backcover {
+		color: Navy;
+		font-family: Garamond, serif;
+		font-style: italic;
+		font-weight: bold;
+		border: 5px double navy;
+	}
+
+
+	div.page {
+		margin: auto;
+		box-sizing: border-box;	
+		
+		text-align: center;		
+		
+		width: 366px;
+		height: 439px;	
+		
+		position: absolute;
+		left: 366px;
+		top: 0px;
+	}
+
+	img.page {
+		width: 351px;
+		height: 409px;
+		
+		position: absolute;
+		left: 366px;
+		top: 15px;	
+	}
+
+
+	.page {
+		transform-origin: top left;
+
+		animation-name: flippage;
+		animation-duration: 1.5s;
+		animation-fill-mode: forwards;
+	}
+
+	div#page0 {	
+		animation-delay: 5s;	
+		z-index: 0;
+	}
+
+	img#page1 {	
+		animation-delay: 10s;
+		z-index: -1;
+	}
+
+	img#page2 {
+		animation-delay: 15s;
+		z-index: -2;
+	}
+	img#page3 {
+		animation-delay: 20s;
+		z-index: -3;
+	}
+	img#page4 {
+		animation-delay: 25s;
+		z-index: -4;
+	}
+
+	img#page5 {
+		animation-delay: 30s;
+		z-index: -5;
+	}
+
+	img#page6 {
+		animation-delay: 35s;
+		z-index: -6;
+	}
+
+	img#page7 {
+		animation-delay: 40s;
+		z-index: -7;
+	}
+
+	img#page8 {
+		animation-delay: 45s;
+		z-index: -8;
+	}
+
+	img#page9 {
+		animation-delay: 50s;
+		z-index: -9;
+	}
+
+	img#page10 {	
+		animation-delay: 55s;
+		z-index: -10;
+	}
+
+	div#page11 {	
+		animation-name: none; /* Don't close the flap at the end */
+		/*animation-delay: 60s;*/
+		z-index: -11;
+	}
+
+
+	/* Chrome, Safari, Opera */
+	@-webkit-keyframes flippage {
+		from {
+			-webkit-transform: rotateY(0deg); 
+			z-index: 1; 
+		}
+		to {
+			-webkit-transform: rotateY(180deg); 
+			z-index: 1;
+		}
+	}
+
+	/* Standard syntax */
+	@keyframes flippage {
+		from {
+			transform: rotateY(0deg); 
+			z-index: 1; 
+		}
+		to {
+			transform: rotateY(180deg); 
+			z-index: 1; 
+		}
+	}
+
+	</style>
+</head>
+<body>
+
+<div id="wrapper">
+  <div id="container">  
+	<div class="page frontcover" id="page0">A Collection of Mammals<br />
+		<small>Can you guess the mammal?</small></div>
+	  <img class="page" id="page1" src="../images/quokka.jpg" alt="Quokka" title="Quokka" />
+	  <img class="page" id="page2" src="../images/arctic_fox.jpg" alt="Arctic Fox" title="Arctic Fox" />
+	  <img class="page" id="page3" src="../images/grazing_wombat.jpg" alt="Grazing wombat" title="Grazing wombat" />
+	  <img class="page" id="page4" src="../images/Himalayan_Pika.jpg" alt="Himalayan Pika" title="Himalayan Pika" />
+	  <img class="page" id="page5" src="../images/Pallas_Cat.jpg" alt="Pallas Cat" title="Pallas Cat" />
+	  <img class="page" id="page6" src="../images/Pallas_Cat2.jpg" alt="Pallas Cat" title="Pallas Cat" />
+	  <img class="page" id="page7" src="../images/wombat2.jpg" alt="Wombat" title="Wombat" />
+	  <img class="page" id="page8" src="../images/RedPanda.jpg" alt="Red Panda" title="Red Panda" />
+	  <img class="page" id="page9" src="../images/lynx.jpg" alt="Lynx" title="Lynx" />
+	  <img class="page" id="page10" src="../images/wombats.jpg" alt="Wombat feeding" title="Wombat feeding" />
+	<div class="page backcover" id="page11"></div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Christmas tree decorations</title>	
+	<!--<link rel="stylesheet" href="tree_style.css" />-->
+	<style>
+	body {
+		height: 100%;
+		margin-top:5%;
+	}
+
+	/* centred container to ensure images are centred */
+	div#container {
+		margin: auto;
+		width: 700px; /* image width and height */
+		height: 541px;
+		/* absolutely positioned elements within this container div will be positioned relative to this container's origin */
+		position: relative; 
+	}
+
+
+	/* All imgs will appear inside the div#container and will be positioned absolutely with respect to it*/
+
+	img {
+		/*display: block;
+		margin: auto;*/
+		position: absolute;
+	}
+	
+	img#background {
+		top: 0;
+		left: 0;
+		z-index: 0;
+	}
+
+	img#tree {
+		top: 113px; /* push the tree img down to the bottom of the bg img */
+		width: 700px; /* Reduce the tree img's width to that of the bg img, this will then also limit the height accordingly */
+		z-index: 2;
+	}
+
+	/* We want the baubles in front of the tree, so they get the highest z-index value */
+
+	img.bauble { z-index: 3; }
+
+	#red {
+		left: 42px;
+		top: 341px;		
+	}
+
+	#blue {
+		left: 113px;
+		top: 226px;
+	}
+
+	#green {
+		left: 425px;
+		top: 211px;
+	}
+
+	#orange {
+		left: 604px;
+		top: 281px;
+	}
+
+	#darkblue {
+		left: 300px;
+		top: 276px;		
+	}
+
+	/* We'll (partly) obscure the pink bauble with the tree, by giving it 
+		a lower z-index than the tree but higher than the background. 
+		CSS styling on ids override the same properties styled for the class. */
+	#pink {
+		z-index: 1;
+		left: 400px;
+		top: 330px;
+	}	
+
+	</style>
+</head>
+<body>
+
+<div id="container">
+	<!-- baubles -->
+	<img id="red" class="bauble" src="../images/red.png" alt="red bauble" title="red bauble" />
+	<img id="pink" class="bauble" src="../images/pink.png" alt="pink bauble" title="pink bauble" />
+	<img id="green" class="bauble" src="../images/green.png" alt="green bauble" title="green bauble" />
+	<img id="orange" class="bauble" src="../images/orange.png" alt="orange bauble" title="orange bauble" />
+	<img id="blue" class="bauble" src="../images/blue.png" alt="blue bauble" title="blue bauble" />
+	<img id="darkblue" class="bauble" src="../images/darkblue.png" alt="darkblue bauble" title="darkblue bauble" />
+
+	<img id="background" src="../images/landscape.jpg" alt="landscape background image" title="landscape background image" />
+	<img id="tree" src="../images/pohutukawa.png" alt="Pohutukawa tree layer" title="Pohutukawa tree layer" />
+	
+</div>
+
+</body>
+</html>
