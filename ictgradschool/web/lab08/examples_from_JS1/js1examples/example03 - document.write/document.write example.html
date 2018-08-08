@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        /**
+         * Calling this function will cause the ENTIRE page to be replaced with the given message.
+         * This is because calling document.write after the page has loaded, will delete the existing contents.
+         *
+         * @param message the message to display
+         */
+        function dangerousFunction(message) {
+            document.write(message);
+        }
+
+    </script>
+
+</head>
+<body>
+
+<h1>The following is generated with JS Code:</h1>
+<script>
+    /**
+     * Calling document.write before the page has finished loading will cause any written content to be appended
+     * at the current location.
+     */
+
+    // Note this is the same as a Java for loop, except i is declared as a "var" instead of "int".
+    // All variables in JS are "var" - there's no strict typing.
+    for (var i = 5; i < 100; i += 2) {
+        document.write("<h1>" + i + "</h1>");
+    }
+</script>
+
+<h1>Click the following button at your peril!</h1>
+<button onclick="dangerousFunction(2 * 55)">Click me, I won't bite!</button>
+
+</body>
+</html>
+
+
+
+
+
+
+
