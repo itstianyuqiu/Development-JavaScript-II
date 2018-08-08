@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        tr, th {
+            padding: 5px 20px 5px 20px;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+
+        var pgcert_lectures = [
+            {
+                "week": 5, "topic": "Collections", "paper": "CS718"
+            },
+            {
+                "week": 5, "topic": "Enums & Recursion", "paper": "CS718"
+            },
+            {
+                "week": 5, "topic": "AJAX", "paper": "CS719"
+            },
+            {
+                "week": 5, "topic": "Databases", "paper": "CS719"
+            }
+        ];
+
+        function makeTable() {
+
+            var tableDiv = document.getElementById("tableContainer");
+            table = document.createElement("table");
+
+            table = document.createElement("table");
+            table.style.borderStyle ="solid";
+
+            table.id = "theTable";
+
+            var thead = document.createElement("thead");
+            var row = document.createElement("tr");
+            var cell1 = document.createElement("th");
+            cell1.innerHTML = "Week";
+            var cell2 = document.createElement("th");
+            cell2.innerHTML = "Topic";
+
+            row.appendChild(cell1);
+            row.appendChild(cell2);
+
+            thead.appendChild(row);
+
+            table.appendChild(thead);
+            tableDiv.appendChild(table);
+
+        }
+
+
+
+    </script>
+
+</head>
+<body>
+
+<h3>Example - Table</h3>
+<button onclick="makeTable()">Make Table</button>
+<div id="tableContainer">
+</div>
+
+
+</body>
+</html>
