@@ -49,17 +49,38 @@
             cell1.innerHTML = "Week";
             var cell2 = document.createElement("th");
             cell2.innerHTML = "Topic";
+            var cell3 = document.createElement("th");
+            cell3.innerHTML = "Paper";
 
             row.appendChild(cell1);
             row.appendChild(cell2);
+            row.appendChild(cell3);
 
             thead.appendChild(row);
 
             table.appendChild(thead);
             tableDiv.appendChild(table);
 
-        }
+            for (var i=0; i < pgcert_lectures.length; i++){
 
+                var row_1 = document.createElement("tr");
+
+                var cell1_1 = document.createElement("td");
+                cell1_1.innerHTML = pgcert_lectures[i].week;
+
+                var cell2_1 = document.createElement("td");
+                cell2_1.innerHTML = pgcert_lectures[i].topic;
+
+                var cell3_1 = document.createElement("td");
+                cell3_1.innerHTML = pgcert_lectures[i].paper;
+
+                row_1.appendChild(cell1_1);
+                row_1.appendChild(cell2_1);
+                row_1.appendChild(cell3_1);
+                table.appendChild(row_1);
+
+            }
+        }
 
 
     </script>

@@ -89,17 +89,17 @@
         // There are 11 strings in imageCollection, which are the filenames (minus file extension) of the 11 images
         // The contents are at position 0 to 10 not 1 to 11!
         var imageCollection = [
-            "arctic_fox",
-            "grazing_wombat",
-            "Himalayan_Pika",
-            "lynx",
-            "Pallas_Cat",
-            "Pallas_Cat2",
-            "pika",
-            "quokka",
-            "RedPanda",
-            "wombat2",
-            "wombats"
+            {name: "arctic_fox", description: "White arctic fox"},
+            {name: "grazing_wombat", description: "Wombar is looking at us"},
+            {name: "Himalayan_Pika", description:"Here is Himalayan Pika"},
+            {name: "lynx", description: "Look at this beautiful lynx"},
+            {name: "Pallas_Cat", description: "There is a fluffy Pallas Cat"},
+            {name: "Pallas_Cat2", description: "Pallas Cat's Portrait"},
+            {name: "pika", description: "Ordinary Pika"},
+            {name: "quokka", description: "Three pictures of quokka"},
+            {name: "RedPanda", description: "Have you ever seen a red panda?"},
+            {name: "wombat2", description: "This is a wombat"},
+            {name: "wombats", description: "Mother and child wombats"}
         ];
 
 
@@ -112,12 +112,14 @@
 
             var featuredImage = document.getElementById("featuredImage");
 
-
-            featuredImage.src = "../images/" + imageCollection[numImage] + ".jpg"; // mustn't forget the file extension and the "images/" folder prefix
-            featuredImage.alt = imageCollection[numImage];
-            featuredImage.title = imageCollection[numImage];
+            featuredImage.src = "../images/" + imageCollection[numImage].name + ".jpg"; // mustn't forget the file extension and the "images/" folder prefix
+            featuredImage.alt = imageCollection[numImage].description;
+            featuredImage.title = imageCollection[numImage].name;
             // leave this line at the end of this function
             selectedImage = numImage; // keep track for next time of what image has been selected
+
+            var description = imageCollection[numImage].description;
+            document.getElementById("descriptionText").innerHTML = description;
         }
 
 
@@ -132,6 +134,17 @@
             // Now we know number of the random image we want to show, so change the featured image using this:
             changeImage(numImage);
         }
+        var selectedImage = 0;
+        function changeColorIfSelected(item){
+
+            var thumb = document.getElementsByClassName("thumb-holder");
+            thumb[item].style.background = "black";
+            for (var i=0; i<thumb.length; i++){
+                if (i != item){
+                    thumb[i].style.background = "LightGrey";
+                }
+            }
+        }
 
     </script>
 </head>
@@ -141,23 +154,23 @@
     <div id="container">
         <img onclick=loadRandomImage() class="page" id="featuredImage" src="../images/quokka.jpg" alt="placeholder"/>
         <!-- for valid HTML need to set src to some valid value, even if JavaScript will overwrite it -->
-        <div class="page" onclick=changeImage() id="descriptionText">Placeholder text. Descriptions should go here.
+        <div class="page" id="descriptionText">Placeholder text. Descriptions should go here.
         </div>
     </div>
 </div>
 <div id="thumbview">
     <!-- the following elements are very repetitive. You will learn how to use loops to automatically create them in Javascript for a subsequent lab -->
-    <div class="thumb-holder"><img src="../images/thumbs/0.gif" alt="thumb"/></div>
-    <div class="thumb-holder"><img src="../images/thumbs/1.gif" alt="thumb"/></div>
-    <div class="thumb-holder"><img src="../images/thumbs/2.gif" alt="thumb"/></div>
-    <div class="thumb-holder"><img src="../images/thumbs/3.gif" alt="thumb"/></div>
-    <div class="thumb-holder"><img src="../images/thumbs/4.gif" alt="thumb"/></div>
-    <div class="thumb-holder"><img src="../images/thumbs/5.gif" alt="thumb"/></div>
-    <div class="thumb-holder"><img src="../images/thumbs/6.gif" alt="thumb"/></div>
-    <div class="thumb-holder"><img src="../images/thumbs/7.gif" alt="thumb"/></div>
-    <div class="thumb-holder"><img src="../images/thumbs/8.gif" alt="thumb"/></div>
-    <div class="thumb-holder"><img src="../images/thumbs/9.gif" alt="thumb"/></div>
-    <div class="thumb-holder"><img src="../images/thumbs/10.gif" alt="thumb"/></div>
+    <div onclick=changeImage(0),changeColorIfSelected(0)  class="thumb-holder"><img src="../images/thumbs/0.gif" alt="thumb"/></div>
+    <div onclick=changeImage(1),changeColorIfSelected(1) class="thumb-holder"><img src="../images/thumbs/1.gif" alt="thumb"/></div>
+    <div onclick=changeImage(2),changeColorIfSelected(2) class="thumb-holder"><img src="../images/thumbs/2.gif" alt="thumb"/></div>
+    <div onclick=changeImage(3),changeColorIfSelected(3) class="thumb-holder"><img src="../images/thumbs/3.gif" alt="thumb"/></div>
+    <div onclick=changeImage(4),changeColorIfSelected(4) class="thumb-holder"><img src="../images/thumbs/4.gif" alt="thumb"/></div>
+    <div onclick = changeImage(5),changeColorIfSelected(5) class="thumb-holder"><img src="../images/thumbs/5.gif" alt="thumb"/></div>
+    <div onclick = changeImage(6),changeColorIfSelected(6) class="thumb-holder"><img src="../images/thumbs/6.gif" alt="thumb"/></div>
+    <div onclick=changeImage(7),changeColorIfSelected(7) class="thumb-holder"><img src="../images/thumbs/7.gif" alt="thumb"/></div>
+    <div onclick=changeImage(8),changeColorIfSelected(8) class="thumb-holder"><img src="../images/thumbs/8.gif" alt="thumb"/></div>
+    <div onclick=changeImage(9),changeColorIfSelected(9) class="thumb-holder"><img src="../images/thumbs/9.gif" alt="thumb"/></div>
+    <div onclick=changeImage(10),changeColorIfSelected(10) class="thumb-holder"><img src="../images/thumbs/10.gif" alt="thumb"/></div>
 </div>
 </body>
 </html>

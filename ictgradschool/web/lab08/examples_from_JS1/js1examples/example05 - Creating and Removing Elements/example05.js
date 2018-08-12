@@ -36,7 +36,7 @@ function createTable() {
     // Check if table already exists. If it does, display an error and quit the function.
     var table = document.getElementById("theTable");
     if (table != null) {
-        alert("Table already exists!")
+        alert("Table already exists!");
         return;
     }
 
